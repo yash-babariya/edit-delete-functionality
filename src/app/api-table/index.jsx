@@ -1,13 +1,18 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './apitable.scss'
-import DataTable from 'react-data-table-component'
+import DataTable, { createTheme } from 'react-data-table-component'
 
 export default function ApiTable() {
     const [photos, setPhotos] = useState([])
+    const apiCall = () => {
+        fetch('https://jsonplaceholder.typicode.com/photos')
+            .then(response => response.json())
+            .then(data => setPhotos(data))
+    }
+    useEffect(() => {
+        apiCall();
+    }, [])
 
-    fetch('https://jsonplaceholder.typicode.com/photos')
-        .then(response => response.json())
-        .then(data => setPhotos(data))
 
     const columns = [
         {
@@ -28,7 +33,7 @@ export default function ApiTable() {
             cell: (row) => {
                 return (
                     <div>
-                        <img src={row.url} height={50} alt="colors-code" />
+                        <img src={row.url} height={30} width={70} alt="colors-code" />
                     </div>
                 );
             },
@@ -39,15 +44,27 @@ export default function ApiTable() {
             cell: (row) => {
                 return (
                     <div>
-                        <img src={row.thumbnailUrl} height={50} alt="Thumbnail" />
+                        <img src={row.thumbnailUrl} width={70} height={30} alt="Thumbnail" />
                     </div>
                 );
             },
         }
     ]
+    createTheme('dark', {
+        background: {
+            default: 'transparent',
+        },
+    });
     return (
         <div className='ApiTable'>
-            <DataTable pagination columns={columns} data={photos} />
+            <div className="heading">
+                <h1>Api Table</h1>
+            </div>
+            <div className="container">
+                <div className="table">
+                    <DataTable pagination columns={columns} theme="solarized" data={photos} />
+                </div>
+            </div>
         </div>
     )
 }

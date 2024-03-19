@@ -109,8 +109,15 @@ export default function Home() {
         return true;
     }
     return (
-        <div className='main'>
-            <DataTable pagination columns={columns} data={userList} />
+        <div className='user-main'>
+            <div className="heading">
+                <h1>User Management</h1>
+            </div>
+            <div className="container">
+                <div className="table">
+                    <DataTable pagination columns={columns} data={userList} />
+                </div>
+            </div>
             <div className="container">
                 <div className="form">
                     <div className="form-user">

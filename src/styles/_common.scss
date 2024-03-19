@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 * {
-    box-sizing: border-box;
     font-family: "Roboto", sans-serif;
 }
 
@@ -27,4 +26,33 @@ ul {
 
 a {
     text-decoration: none;
+}
+
+.table {
+    margin-top: 30px;
+    border: 2px solid #140e6d;
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+
+    .kGckkd {
+        color: #140e6d;
+        font-size: 14px;
+        font-weight: 800;
+    }
+
+    .kUMlDB {
+        font-size: 14px;
+        font-weight: 400;
+
+    }
+}
+
+.heading {
+    h1 {
+        text-align: center;
+        font-size: 40px;
+        font-weight: 700;
+        color: #140e6d;
+    }
 }
