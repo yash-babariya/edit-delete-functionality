@@ -4,6 +4,7 @@ import DataTable from 'react-data-table-component';
 import toast from 'react-hot-toast';
 import { CiEdit } from "react-icons/ci";
 import { MdDelete } from "react-icons/md";
+import { motion } from "framer-motion";
 
 export default function Home() {
     let initialValue = {
@@ -110,9 +111,15 @@ export default function Home() {
     }
     return (
         <div className='user-main'>
-            <div className="heading">
-                <h1>User Management</h1>
-            </div>
+            <motion.div
+                initial={{ opacity: 0, y: -50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+            >
+                <div className="heading">
+                    <h1>User Management</h1>
+                </div>
+            </motion.div>
             <div className="container">
                 <div className="table">
                     <DataTable pagination columns={columns} data={userList} />
