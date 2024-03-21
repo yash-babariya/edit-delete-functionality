@@ -1,7 +1,9 @@
 @import '../../styles/index.scss';
 
 .user-main {
+    width: 1200px;
     padding-top: 60px;
+    margin: 0 auto;
 
     .form {
         margin-top: 20px;
@@ -10,7 +12,7 @@
     }
 
     .form-user {
-        width: 900px;
+        width: 100%;
         border-radius: 10px;
         padding: 20px;
         border: 2px solid #140e6d;
